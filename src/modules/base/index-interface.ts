@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from 'fastify';
 
 // import BaseSchema from './base-schema';
 
-export default interface IndexInterface {
+interface IndexInterface {
 
     create(request: FastifyRequest, reply: FastifyReply): Promise<FastifyReply>;
 
@@ -14,3 +14,5 @@ export default interface IndexInterface {
 
     delete(request: any, reply: FastifyReply): Promise<FastifyReply>;
 }
+
+export default IndexInterface;

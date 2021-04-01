@@ -29,6 +29,12 @@ export default class BaseSchema implements SchemaInterface {
     },
   };
 
+  /**
+   *
+   *
+   * @readonly
+   * @memberof BaseSchema
+   */
   get getOneSchema() {
     return {
       tags: [this.constructor.name],

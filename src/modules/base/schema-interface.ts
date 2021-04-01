@@ -1,4 +1,4 @@
-export default interface SchemaInterface {
+interface SchemaInterface {
 
   properties: { [k: string]: any };
 
@@ -43,8 +43,9 @@ export default interface SchemaInterface {
   };
 
   [x: string]: any;
-  // eslint-disable-next-line semi
 }
+
+export default SchemaInterface;
 
 export interface SchemaInterfaceConstructor {
   new(): SchemaInterface;
