@@ -49,7 +49,7 @@ export default class BaseService implements ServiceInterface {
    * @param {ModelInterfaceConstructor} modelType
    * @param {FastifyInstance} fastifyInstance
    * @param {SchemaInterface} schema
-   * @returns
+   * @return {*}
    * @memberof BaseService
    */
   public static Instance(
@@ -63,14 +63,36 @@ export default class BaseService implements ServiceInterface {
     return this._instance;
   }
 
+  /**
+   *
+   *
+   * @readonly
+   * @type {string}
+   * @memberof BaseService
+   */
   get collectionName(): string {
     return this._collection;
   }
 
+  /**
+   *
+   *
+   * @readonly
+   * @type {string}
+   * @memberof BaseService
+   */
   get pathPrefix(): string {
     return `/${this._collection}`;
   }
 
+  /**
+   *
+   *
+   * @param {*} body
+   * @param {(FastifyReply | null)} [_reply=null]
+   * @return {Promise<ModelInterface>}
+   * @memberof BaseService
+   */
   public async create(body: any, _reply: FastifyReply | null = null): Promise<ModelInterface> {
     try {
       delete body._id;
@@ -90,6 +112,14 @@ export default class BaseService implements ServiceInterface {
     }
   }
 
+  /**
+   *
+   *
+   * @param {string} id
+   * @param {(FastifyReply | null)} [_reply=null]
+   * @return {(Promise<ModelInterface | null>)}
+   * @memberof BaseService
+   */
   public async show(
       id: string,
       _reply: FastifyReply | null = null,
@@ -108,6 +138,14 @@ export default class BaseService implements ServiceInterface {
     }
   }
 
+  /**
+   *
+   *
+   * @param {string} id
+   * @param {(FastifyReply | null)} [_reply=null]
+   * @return {(Promise<{ _id: string } | null>)}
+   * @memberof BaseService
+   */
   public async delete(
       id: string,
       _reply: FastifyReply | null = null,
@@ -131,6 +169,14 @@ export default class BaseService implements ServiceInterface {
     }
   }
 
+  /**
+   *
+   *
+   * @param {FastifyRequest} _request
+   * @param {(FastifyReply | null)} [_reply=null]
+   * @return {Promise<ModelInterface[]>}
+   * @memberof BaseService
+   */
   public async index(
       _request: FastifyRequest,
       _reply: FastifyReply | null = null,
@@ -146,6 +192,15 @@ export default class BaseService implements ServiceInterface {
     }
   }
 
+  /**
+   *
+   *
+   * @param {string} id
+   * @param {*} body
+   * @param {(FastifyReply | null)} [_reply=null]
+   * @return {(Promise<ModelInterface | null>)}
+   * @memberof BaseService
+   */
   public async update(
       id: string,
       body: any,

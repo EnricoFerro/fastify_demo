@@ -63,6 +63,12 @@ export default class BaseSchema implements SchemaInterface {
     };
   }
 
+  /**
+   *
+   *
+   * @readonly
+   * @memberof BaseSchema
+   */
   get getAllSchema() {
     return {
       tags: [this.constructor.name],
@@ -82,6 +88,12 @@ export default class BaseSchema implements SchemaInterface {
     };
   }
 
+  /**
+   *
+   *
+   * @readonly
+   * @memberof BaseSchema
+   */
   get createSchema() {
     return {
       tags: [this.constructor.name],
@@ -108,6 +120,12 @@ export default class BaseSchema implements SchemaInterface {
     };
   }
 
+  /**
+   *
+   *
+   * @readonly
+   * @memberof BaseSchema
+   */
   get updateSchema() {
     return {
       tags: [this.constructor.name],
@@ -146,6 +164,12 @@ export default class BaseSchema implements SchemaInterface {
     };
   }
 
+  /**
+   *
+   *
+   * @readonly
+   * @memberof BaseSchema
+   */
   get deleteSchema() {
     return {
       tags: [this.constructor.name],
