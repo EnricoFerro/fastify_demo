@@ -7,11 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "build-ts": "tsc -p .",
-    "test": "cp -n .env.example .env && npm run build-ts && tap ./dist/test/**/*.test.js",
+    "dev": "ts-node-dev --trace-warnings --respawn --no-notify --files --ignore-watch node_modules src/server.ts",
+    "build": "rm -rf dist && tsc -b",
+    "test": "cp -n .env.example .env && npm run build && tap ./dist/test/**/*.test.js",
     "start": "cp -n .env.example .env && npm run seed && node ./dist/server.js",
     "lint": "eslint . --ext .ts",
-    "seed": "npm run build-ts && node ./dist/commands/SeedDb.js"
+    "seed": "node ./dist/commands/SeedDb.js"
   },
   "keywords": [],
   "author": "",
@@ -43,6 +44,8 @@
     "eslint": "^7.23.0",
     "eslint-config-google": "^0.14.0",
     "pino-pretty": "^4.7.1",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
     "typescript": "^4.2.3"
   }
 }
